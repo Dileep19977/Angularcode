@@ -1,0 +1,30 @@
+<div style="overflow: auto;
+height: 230px;">
+<div *ngFor="let student of studentList" style="border: 2px solid green;
+padding: 10px;
+overflow: auto;
+height: 230px;">
+<p><b>Student Id:</b>{{student.studentId}}</p>
+<p><b>Student Name:</b>{{student.studentName}}</p>
+<p><b>Student Gpa:</b>{{student.studentGpa}}</p>
+<p><b>Student Phone:</b>{{student.Phone}}</p>
+<p><b>Student Email:</b>{{student.Email}}</p>
+<div style="    border: 2px solid red;
+display: inline-block;
+margin: 5px;
+padding: 2px;"><b (click)="delete()">Delete Student Name: {{student.studentName}}</b></div>
+</div>
+</div>
+<h4>Add Student</h4>
+<form [formGroup]="studentForm">
+    <div style="display: grid;
+    border: 2px solid green;
+    padding: 15px;">
+    <b>Student Id:</b><input formControlName="studentId" type="number">
+    <b>Student Name:</b><input formControlName="studentName"  type="text">
+    <b>Student Gpa:</b><input formControlName="studentGpa"  type="number">
+    <b>Student Phone:</b><input formControlName="studentphone"  type="number">
+    <b>Student Email:</b><input formControlName="studentEmail"  type="text">
+    </div>
+<button [disabled]="studentForm.status=='INVALID'" (click)="addStudent()">Submit</button>
+</form>
